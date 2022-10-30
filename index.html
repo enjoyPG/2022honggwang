@@ -111,6 +111,8 @@
             document.getElementById("body").classList.remove('main2');
             document.getElementById("body").classList.add('main3');
 
+            document.getElementById("btnImg").setAttribute("src", "./img/startBtn.png")
+
             var contDiv = document.getElementById("cont");
             var nDiv = document.createElement("div");
             nDiv.classList.add("d-block");
@@ -125,8 +127,16 @@
 <body class="container main1" id = "body">
     <div id="cont" class="text-center">
         <div>
-            <button id="mainBtn" type="button" class="btn-block mt-3 fixed-bottom"  onclick="secondScene()"><img src="./img/camBtn.png" alt=""></button>
+            <button id="mainBtn" type="button" class="btn-block mt-3 fixed-bottom"  onclick="secondScene()"><img id="btnImg" src="./img/startBtn.png" alt=""></button>
         </div>
     </div>
+
+    <!-- <div id="cont" class="text-center">
+        <div class="d-block" id="webcam-container"></div>
+        <div>
+            <button type="button" class="btn-block mt-3 fixed-bottom"  onclick="predict()"><img src="./img/camBtn.png" alt=""></button>
+        </div>
+    </div>
+    <script>init();</script> -->
 </body>
 </html>
