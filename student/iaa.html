@@ -15,21 +15,15 @@
         button{
             all:unset
         }
-        #main{           
+        #main{
+            /* background: no-repeat bottom url("cameraBackground.png"); */
+
             /* height: 100vh; */
-            width: 100vw;
-            background-image: url(./img/cameraBackground.png);
-            background-size: cover;
+            background-color: rgba(186, 199, 212, 0.801);
+            background-image: url(cameraBackground.png);
+            /*background-size: cover;*/
             background-repeat: no-repeat;
         }
-        #cam{
-            margin-top: 50%;
-        }
-        #webcam-container{
-            /* outline:solid 2px slategrey; */
-            padding-top: 5px;
-        }
-
     </style>
     <script type="text/javascript">
     
@@ -44,6 +38,7 @@
 
         // Load the image model and setup the webcam
         async function init() {
+            document.getElementById("die").innerHTML = ""
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
 
@@ -87,12 +82,15 @@
         }
     </script>
 </head>
-<body class="container" id = "main">
-    <script>init();</script>
-    <div id="cam" class="text-center">
-        <div class="d-block" id="webcam-container"></div>
-        <button type="button" class="btn-block mt-3"  onclick="predict()"><img src="./img/start.png" alt=""></button>
+<body class="container" style="text-align:center" id = "main">
+    <div>
+        <div class="mt-3"><h1>이름</h1></div>
+        <button type="button" onclick="init()" id = "die">Start</button>
+        
+        <div id="webcam-container"></div>
         <div id="label-container" style="text-align: centor;"></div>
+        <button type="button" onclick="predict()">판독시작</button>
     </div>
 </body>
 </html>
+    
