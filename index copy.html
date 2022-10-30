@@ -16,28 +16,28 @@
             all:unset;
             margin-bottom:40%;
         }
-        .main1{           
+        #main1{           
             /* height: 100vh; */
             width: 100vw;
             background-image: url(./img/main1.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
-        .main2{           
+        #main2{           
             /* height: 100vh; */
             width: 100vw;
             background-image: url(./img/main2.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
-        .main3{           
+        #main3{           
             /* height: 100vh; */
             width: 100vw;
             background-image: url(./img/main3.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
-        #cont{
+        #cam{
             margin-top: 50%;
         }
         #webcam-container{
@@ -99,34 +99,18 @@
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
+
         }
-
-        async function secondScene(){
-            document.getElementById("body").classList.remove('main1');
-            document.getElementById("body").classList.add('main2');
-            document.getElementById("mainBtn").setAttribute("onClick", "thirdScene()")
-        }
-
-        async function thirdScene(){
-            document.getElementById("body").classList.remove('main2');
-            document.getElementById("body").classList.add('main3');
-
-            var contDiv = document.getElementById("cont");
-            var nDiv = document.createElement("div");
-            nDiv.classList.add("d-block");
-            nDiv.setAttribute("id","webcam-container")
-            contDiv.prepend(nDiv);
-            init();
-        }
-
-
     </script>
 </head>
-<body class="container main1" id = "body">
-    <div id="cont" class="text-center">
+<body class="container" id = "main3">
+    <script>init();</script>
+    <div id="cam" class="text-center">
+        <div class="d-block" id="webcam-container"></div>
         <div>
-            <button id="mainBtn" type="button" class="btn-block mt-3 fixed-bottom"  onclick="secondScene()"><img src="./img/camBtn.png" alt=""></button>
+            <button type="button" class="btn-block mt-3 fixed-bottom"  onclick="predict()"><img src="./img/camBtn.png" alt=""></button>
         </div>
+        <div id="label-container" style="text-align: center;"></div>
     </div>
 </body>
 </html>
